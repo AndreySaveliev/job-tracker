@@ -1,6 +1,6 @@
 "use server";
-import { SigninFormSchema, SigninFormState } from "@/app/lib/definitions";
 const bcrypt = require("bcryptjs");
+import { SigninFormSchema, SigninFormState } from "@/app/lib/SigninSchema";
 import { prisma } from "@/prisma";
 import { createSession } from "@/session/session";
 import { redirect } from "next/navigation";
@@ -26,7 +26,10 @@ export const signin = async (state: SigninFormState, formData: FormData) => {
   if (!user) {
     return { message: "Can't find user a login" };
   } else {
-    const isValidPassword = await bcrypt.compare(formData.get("password"), user.password);
+    const isValidPassword = await bcrypt.compare(
+      formData.get("password"),
+      user.password,
+    );
     if (isValidPassword) {
       await createSession(user.id);
       redirect("/");

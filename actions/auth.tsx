@@ -1,5 +1,5 @@
 "use server";
-import { SignupFormSchema, SignupFormState } from "@/app/lib/definitions";
+import { SignupFormSchema, SignupFormState } from "@/app/lib/SignupSchema";
 const bcrypt = require("bcryptjs");
 import { prisma } from "@/prisma";
 import { createSession } from "@/session/session";
