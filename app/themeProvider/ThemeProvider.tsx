@@ -13,7 +13,7 @@ function ThemeProvider({
   return (
     <ThemeContext value={theme}>
       <ThemeDispatchContext value={dispath}>
-        <body data-theme={theme} className="antialiased h-screen">
+        <body data-theme={theme} className="antialiased h-screen mx-auto">
           {children}
         </body>
       </ThemeDispatchContext>
