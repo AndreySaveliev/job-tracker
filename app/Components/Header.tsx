@@ -4,11 +4,13 @@ import darkMode from "@/app/public/dark-mode-icon.svg";
 import lightMode from "@/app/public/light-mode-icon.svg";
 import Image from "next/image";
 import { ThemeContext, ThemeDispatchContext } from "../themeProvider/context";
+import CreateResponse from "./CreateResponse";
 function Header() {
   const dispath = useContext(ThemeDispatchContext);
   const theme = useContext(ThemeContext);
   return (
-    <div>
+    <div className="flex flex-row justify-between shadow-md shadow-secondary bg-secondary">
+      <CreateResponse />
       <button
         className="flex flex-row g-2 bg-primary p-2 rounded-md items-center"
         onClick={() => dispath(theme)}

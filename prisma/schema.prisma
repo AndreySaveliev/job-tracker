@@ -14,4 +14,22 @@ model User {
   id        String   @id @default(uuid())
   login  String   @unique
   password String
-  }
+  responses Response[]
+}
+
+
+
+model Response {
+  id        String   @id @default(uuid())
+  vacancy_name String
+  company_name String
+  work_type String
+  work_adress String
+  salary_low Int
+  salary_high Int
+  date DateTime 
+  vacancy_link String
+  note String
+  userId String
+  user User @relation(fields: [userId], references: [id])
+}
